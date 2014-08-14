@@ -1,5 +1,3 @@
-@char = "mom"
-
 def reverse(string)
   reverse = []
   i=1
@@ -7,12 +5,20 @@ def reverse(string)
     reverse << string[i*(-1)]
     i+=1
   end
-  anagram=reverse.join
-  if anagram == @char
-    puts "#{@char} is an anagram"
-  else
-    puts "#{@char} is not an anagram"
-  end
+  reverse.join
 end
 
-reverse @char
+def get_input
+  puts 'What is the word?'
+  @char = gets.chomp.to_s
+end
+
+get_input
+
+while reverse(@char) != @char
+  puts "#{@char} is not an anagram"
+  get_input
+end
+
+puts "#{@char} is an anagram!"
+
